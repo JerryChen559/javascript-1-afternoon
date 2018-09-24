@@ -6,6 +6,9 @@
 //plus the value of the name parameter.
 
 //Code here
+function greeting(name) {
+  return "Hello, " + name;
+}
 
 //////////////////PROBLEM 2////////////////////
 
@@ -13,13 +16,19 @@
 //Name it newGreeting.
 
 //Code Here
+let newGreeting = function(name) {
+  return "Hello, " + name;
+};
 
 //////////////////PROBLEM 3////////////////////
 
 //Rewrite the function greeting as an arrow function.
 //Name it finalGreeting.
 
-//Code Here
+// Code Here
+let finalGreeting = name => {
+  return "Hello, " + name;
+};
 
 //////////////////PROBLEM 4////////////////////
 
@@ -27,6 +36,7 @@
 //"apples", "milk", "eggs", "bread"
 
 //Code Here
+let groceries = ["apples", "milk", "eggs", "bread"];
 
 //Write a function called doubleCheck that takes in an array
 //as a parameter.
@@ -35,6 +45,12 @@
 //doubleCheck should return the array.
 
 //Code Here
+let doubleCheck = arr => {
+  if (arr.indexOf("chocolate") == -1) {
+    arr.push("chocolate");
+  }
+  return arr;
+};
 
 //////////////////PROBLEM 5////////////////////
 
@@ -44,20 +60,29 @@
 //and goodBoy (a boolean).
 
 //Code Here
+let dog = {
+  name: "Sting cheese",
+  color: "Rainbow",
+  age: 9,
+  goodBoy: true
+};
 
 //...access the dog's name from the object and assign it to a
 //variable called devMountainClassPet.
 
 //Code Here
+let devMountainClassPet = dog.name;
 
 //Add a method to dog called bark.
 //The value of bark should be a function that returns the string "Woof woof".
 
 //Code Here
+dog.bark = () => "Woof woof";
 
 //Store the result of invoking the bark method in a variable called ruff.
 
 //Code Here
+let ruff = dog.bark();
 
 //////////////////PROBLEM 6////////////////////
 
@@ -71,6 +96,22 @@
 //Return mySum.
 
 //Code Here
+let looper = arr => {
+  let mySum = 0;
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (arr[i] % 2 === 1 || arr[i] >= 100) {
+  //     mySum += arr[i];
+  //   }
+  // }
+  // return mySum;
+
+  for (let num of arr) {
+    if (num % 2 === 1 || num >= 100) {
+      mySum += num;
+    }
+  }
+  return mySum;
+};
 
 //////////////////PROBLEM 7////////////////////
 
@@ -84,11 +125,15 @@ function math(num1, num2, callback) {
 //returns the result of adding them together.
 
 //Code Here
+let add = (num1, num2) => {
+  return num1 + num2;
+};
 
 //Now invoke math, passing in the numbers 3 and 4, and your add function,
 //storing the result in the variable mathSum.
 
 //Code Here
+let mathSum = add(3, 4);
 
 //////////////////PROBLEM 8////////////////////
 
@@ -104,6 +149,14 @@ function sampleCallbackTwo() {
 }
 
 //Code Here
+function invoker(cb) {
+  return cb();
+}
+
+// let invoker = sampleCallbackOne => {
+//   return sampleCallbackTwo();
+// };
+// console.log(invoker);
 
 //////////////////PROBLEM 9////////////////////
 
@@ -127,16 +180,16 @@ function pond() {
 //as strings.
 
 //This array should contain the variable names (as strings) accessible in the global scope.
-let globalScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let globalScope = ["duck"];
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let bathroomScope = ["duck", "rubberDuck", "realDuck"];
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let bathtubScope = ["duck", "sailorDuck", "rubberDuck"];
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let pondScope = ["duck", "realDuck"];
 
 //////////////////PROBLEM 10////////////////////
 
@@ -144,11 +197,18 @@ let pondScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
 //function which returns your name.
 
 //Code Here
+let outerFn = () => {
+  return function() {
+    return "Jerry";
+  };
+};
 
 //Now save the result of invoking outerFn into a variable called innerFn.
 
 //Code Here
+let innerFn = outerFn();
 
 //Now invoke innerFn and save the result to a variable called finalResult.
 
 //Code Here
+let finalResult = innerFn();
